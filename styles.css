@@ -1,0 +1,102 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Layout horizontal para telas maiores */
+    align-items: start;
+    height: 100%
+}
+
+.top-right-image {
+    position: fixed;
+    left: 50px;
+    top: 50px;
+    width: 650px; /* Largura inicial */
+    max-width: 100%; /* Garante que não exceda a largura do viewport */
+}
+.overlay-image {
+    position: fixed; /* Posicionamento fixo na janela de visualização */
+    top: 50px; /* Espaçamento do topo */
+    right: 50px; /* Espaçamento da direita */
+    width: 400px; /* Defina um tamanho específico ou use max-width */
+    z-index: 2000; /* Maior que o z-index do model-viewer para garantir que apareça por cima */
+}
+
+model-viewer {
+    margin-left: 670px; /* Espaço inicial para a imagem */
+    height: 100%;
+    flex-grow: 1;
+    background-color: #fff; /* Cor de fundo branca */
+}
+
+footer {
+    width: 100%; /* Ocupa a largura total da tela */
+    padding: 10px 0; /* Reduz o espaçamento vertical interno */
+    background-color: transparent; /* Torna o fundo do footer transparente */
+    color: grey; /* Cor do texto preta */
+    text-align: center; /* Centraliza o texto */
+    position: fixed; /* Fixa o footer no fundo da página */
+    bottom: 0; /* Alinha o footer no fundo da página */
+    left: 0; /* Alinha o footer à esquerda da página */
+    font-size: 10px; /* Tamanho da fonte menor */
+    line-height: 15px;
+    z-index: 1000; /* Garante que o footer fique sobre outros elementos */
+}
+
+
+@media (max-width: 1440px) {
+    .top-right-image {
+        width: 45%; /* Reduzir a largura da imagem em relação à largura do viewport */
+    }
+    model-viewer {
+        margin-left: 50%; /* Ajustar margem esquerda com base na nova largura da imagem */
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .top-right-image {
+        position: static;
+        width: 55%; /* Mantém 70% em telas pequenas para responsividade */
+        margin: 40px auto;
+    }
+
+    model-viewer {
+        width: 90%;
+        height: 50vh;
+        margin-left: 0;
+        margin-top: 0;
+        background-color: #fff; /* Cor de fundo para o modelo em telas pequenas também */
+    }
+}
+@media (max-width: 600px) {
+    footer {
+        font-size: 8px; /* Tamanho menor da fonte para telas pequenas */
+    }
+}
+@media (max-width: 1440px) {
+    .overlay-image {
+        width: 30%; /* Reduzir a largura da imagem em relação à largura do viewport */
+    }
+}
+
+@media (max-width: 800px) {
+    .overlay-image {
+        position: fixed;
+        width: 38%; /* Mantém 70% em telas pequenas para responsividade */
+        margin: 41%;
+        left: -17%;
+
+    }
+}
+
+
+
